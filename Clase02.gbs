@@ -1,0 +1,159 @@
+/*
+    U#02 - PROCEDIMIENTOS
+        # Por arriba ( Visto el martes virtual)
+        # El bosque, parte 1
+        # Reloj Analogico Simplificado
+
+*/
+
+
+program{
+    /*
+    PROPOSITO: Pone un cuadrado de bolitas de color Verde en un tablero de 3x3 celdas.
+        Comenzando y terminando en el centro del tablero.
+    PRECONDICIONES:
+        * El tablero inicial debe tener 3x3 celdas
+        * El cabezal inicia en el centro del tablero
+    */
+
+    IrAlInicioDeUnTableroDe3x3() // BIBLIOTECA
+    PonerFilaVerde()
+    IrAlInicioDeLaSiguienteFilaAlNorte()
+    PonerFilaVerde()
+    IrAlInicioDeLaSiguienteFilaAlNorte()
+    PonerFilaVerde()
+    
+    // Ir al Centro del tablero
+    Mover(Sur) Mover(Oeste)
+}
+
+procedure IrAlInicioDeUnTableroDe3x3(){
+    /*
+    PROPOSITO: Lleva el cabezal al inicio del tablero en
+        las coordenadas (0,0) en un tablero de 3x3
+    PRECONDICIONES:
+        * El tablero inicial debe tener 3x3 celdas
+        * El cabezal inicia en el centro del tablero
+    */
+    Mover(Sur)
+    Mover(Oeste)
+}
+
+procedure PonerFilaVerde(){
+    /*
+    PROPOSITO: Pone una fila de una bolita Verde por cada celda
+        en un tablero de 3x3. Comenzando al Oeste y dejando
+        el cabezal al Este.
+    PRECONDICIONES:
+        *Debe haber al menos 3 lugares disponibles al Este
+    */
+    Poner(Verde)
+    Mover(Este)
+    Poner(Verde)
+    Mover(Este)
+    Poner(Verde)
+}
+
+procedure IrAlInicioDeLaSiguienteFilaAlNorte(){
+    /*
+    PROPOSITO: Lleva el cabezal a la primera celda
+        de la siguiente fila al norte en un tablero de 3x3
+    PRECONDICIONES:
+        * Debe existir al menos una fila lindante al
+            Norte de la celda actual
+        * Deben existir al menos 3 celdas al Oeste
+            de la celda actual
+    */
+    Mover(Norte)
+    Mover(Oeste)
+    Mover(Oeste)
+}
+
+/*-----------------------------------------------------*/
+        # El bosque, parte 1
+procedure PonerUnaSemilla(){
+    /*
+    PROPOSITO: Pone una semilla en la parcela actual
+    PRECONDICIONES: Ninguna
+    */
+    Poner(Rojo)
+}
+
+procedure SacarUnaSemilla(){
+    /*
+    PROPOSITO: Saca una semilla en la parcela actual
+    PRECONDICIONES:
+        * Debe haber al menos una semilla en la parcela actual
+    */
+    Sacar(Rojo)
+}
+
+procedure PonerUnÁrbol(){/*TODO*/}
+procedure PonerUnaBomba(){/*TODO*/}
+procedure PonerUnNutriente(){/*TODO*/}
+procedure SacarUnÁrbol(){/*TODO*/}
+procedure SacarUnaBomba(){/*TODO*/}
+procedure SacarUnNutriente(){/*TODO*/}
+
+
+/*-----------------------------------------------------*/
+        # Reloj Analogico Simplificado
+procedure DibujarRelojAnalógicoSimplificado(){
+    /*
+    PROPOSITO: Dibuja un reloj analogico simplificado en un tablero
+        de 5x5 iniciando en el centro
+    PRECONDICIONES:
+        * Debe haber al menos 2 celdas disponibles hacia
+            cada una de las direcciones
+    */
+    IrAlBorde(Norte)
+    MarcarLas12EnElReloj()
+    
+    IrAlNro3DesdeElNro12() // (pensar encapsulamiento en MarcarLasXEnElReloj)
+    /*
+    IrAlBorde(Este)
+    Mover(Sur) Mover(Sur)
+    */
+    
+    MarcarLas3EnElReloj()
+    IrAlNro6DesdeElNro3()
+    
+    MarcarLas6EnElReloj()
+    IrAlNro9DesdeElNro6()
+
+    MarcarLas9EnElReloj()
+    
+    IrAlCentroDelReloj()
+}
+
+procedure MarcarLas12EnElReloj() {
+    /*
+    PROPOSITO: Pone el Nro 12 en la celda actual
+    PRECONDICIONES:
+        *La celda debe estar vacia
+    */
+    MarcarLas6EnElReloj()
+    MarcarLas6EnElReloj()
+}
+
+procedure IrAlNro3DesdeElNro12() {
+    /*
+    PROPOSITO: Lleva el cabezal de el Nro 12 a la celda donde estará Nro 3
+    PRECONDICIONES:
+        * Debe haber al menos 2 celdas al Este y dos al Sur
+    */
+    IrAlBorde(Este)
+    Mover(Sur)
+    Mover(Sur)
+}
+
+
+
+procedure MarcarLas3EnElReloj() {/*TODO*/}
+procedure IrAlNro6DesdeElNro3() {/*TODO*/}
+procedure MarcarLas6EnElReloj() {/*TODO*/}
+procedure IrAlNro9DesdeElNro6() {/*TODO*/}
+procedure MarcarLas9EnElReloj() {/*TODO*/}
+procedure IrAlCentroDelReloj() {/*TODO*/}
+
+/*-----------------------------------------------------*/

@@ -1,0 +1,185 @@
+/*
+    U#03 - REPETICION SIMPLE
+        E5  # Dibujando un rectangulo con repeticiones
+        E2  # Moviendo tres veces al Este
+        E6  # Pintando el tablero
+
+    U#04 - PARAMETROS
+        E9  # Poner de a muchas [RESUELTO EN VIRTUAL]
+        E11 # Sacar de a muchas [RESUELTO EN VIRTUAL]
+        E10 # Mover tantas veces como quiera [RESUELTO EN VIRTUAL]
+        E12 # Escribiendo fechas [RESUELTO EN VIRTUAL]
+        E17 # El bosque, parte 2
+
+    Clase virtual:
+        - Repaso por U2 y U3 de procedimientos y repetición simple respectivamente
+        - U4 de Parámetros un poco de teoría.
+        - Resolución de 3 puntos de la Guía de Biblioteca y ejercicio de las fechas.
+*/
+
+/*
+10. Moviendo tantas veces como quieras a donde quieras
+
+BIBLIOTECA. Escribir Mover_VecesAl_(cantidadAMover, direcciónAMover), un procedimiento que dado un
+número cantidadAMover y una dirección direcciónAMover mueva el cabezal tantas veces como la dada en
+dicha dirección.
+*/
+
+     Mover_VecesAl_(15, Oeste)
+     
+procedure Mover_VecesAl_(cantidadAMover, direcciónAMover){
+    /*
+    PROPOSITO: Mueve el cabezal *cantidadAMover* celdas al *direcciónAMover* desde la celda actual
+    PRECONDICIONES:
+        * Debe habel al menos *cantidadAMover* celdas al *direcciónAMover* (desde la celda actual)
+    PARAMETROS:
+        *cantidadAMover: Numero - es la cantidad de celdas a mover
+        *direcciónAMover: Direccion - es la Direccion a mover 
+    */
+    repeat(cantidadAMover){
+        Mover(direcciónAMover)
+    }
+}
+
+/*
+12. Escribiendo fechas
+Construir un procedimiento EscribirFechaConDía_Mes_Año_(día, mes, año), que permita representar cualquier
+fecha dados el día, mes y año (como números). La representación debe ser la misma utilizada en el ejercicio
+anterior donde se registró el Día de la Memoria (Azul para el día, Rojo para el mes y Verde para el año, en tres
+celdas hacia el Este).
+¡Recordar! Debe comenzarse por escribir el contrato; en este caso puede resultar útil escribir también una
+observación con la representación a utilizar
+*/
+
+procedure EscribirFechaConDía_Mes_Año_(día, mes, año){
+    /*
+    PROPOSITO: Escribe la fecha dia *día*, mes *mes* y año *año* con un Numero en cada celda, con bolitas segun la reperesentacion; Día: Azul; Mes: Rojo; Año: Verde
+    PRECONDICIONES:
+        * Debe haber al menos 3 celdas al Este de la celda actual
+    PARAMETROS:
+        *día: Numero - reperesenta el día de la fecha de color Azul 
+        *mes: Numero - es el mes de la fecha de color Rojo
+        *año: Numero - es el año de la fecha de color Verde
+    OBSERVACIONES:
+        [Podria poner la representacion o cualquier informacion adicional]
+    */
+    /*
+    En esta solucion usamos procedimientos de representacion,
+    pero podemos utilizar directamente los de BIBLIOTECA
+    */
+    PonerDía_DeColor_(día, Azul) //o bien Poner_DeColor_(día, Azul)
+    PonerMes_DeColor_(mes, Rojo) //o bien Poner_DeColor_(mes, Rojo)
+    PonerAño_DeColor_(año, Verde) //o bien Poner_DeColor_(año, Verde)
+}
+
+procedure PonerDía_DeColor_(unDía, unColor){
+    /*
+    PROPOSITO: Pone el día *unDía* representado con tantas bolitas de color *unColor* en la celda actual.
+    PRECONDICIONES:
+        * La celda debe estar vacia
+    PARAMETROS:
+        *unDía: Numero - es el día a representar
+        *unColor: Color - es el color del día a representar
+    */
+    Poner_DeColor_(unDía,unColor)
+}
+
+
+/*
+17. El bosque, parte 2
+Continuaremos representando el bosque que comenzamos en la práctica
+anterior. Esta vez queremos ser capaces de poner o sacar múltiples
+elementos de una sola vez.
+
+Importante: para realizar este ejercicio se espera haya realizado
+partes anteriores de este dominio, si aún no lo hizo, se recomienda
+volver y realizar el mismo previo a solucionar el ejercicio actual.
+
+Poner_Semillas(cantidadDeSemillasAPoner)
+Sacar_Semillas(cantidadDeSemillasASacar)
+Poner_Árboles(cantidadDeÁrbolesAPoner)
+Sacar_Árboles(cantidadDeÁrbolesASacar)
+Poner_Nutrientes(cantidadDeNutrientesAPoner)
+Sacar_Nutrientes(cantidadDeNutrientesASacar)
+*/
+
+procedure Poner_Semillas(cantidadDeSemillasAPoner){
+    /*
+    PROPOSITO: Poner *cantidadDeSemillasAPoner* semillas en la parcela actual
+    PRECONDICIONES: Ninguna
+    PARAMETROS:
+        *cantidadDeSemillasAPoner: Numero - es la cantidad de semillas a poner
+    */
+    repeat(cantidadDeSemillasAPoner){
+        PonerUnaSemilla()
+    }
+}
+
+
+procedure Sacar_Árboles(cantidadDeÁrbolesASacar){
+    /*
+    PROPOSITO: Saca *cantidadDeÁrbolesASacar* arboles en la parcela actual
+    PRECONDICIONES:
+        *Debe haber al menos *cantidadDeÁrbolesASacar* en la parcela actual
+    PARAMETROS:
+        *cantidadDeÁrbolesASacar: Numero - es la cantidad de arboles a sacar
+    */
+    repeat(cantidadDeÁrbolesASacar){
+        SacarUnÁrbol()
+    }
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*
+5. El regreso de Nova
+¿Se acuerdan de Nova? Es el nuevo compañero del equipo, que no
+tiene formación profesional, y su código está lleno de malas
+prácticas de programación. Esta vez, en su código se encontró
+un procedimiento que tiene el código hecho, pero no el contrato,
+y no está indentado.
+
+a) En primer lugar, se pide corregir los errores de Nova. No olvidar
+indicar en qué posición queda el cabezal, ni de establecer para qué
+son los parámetros.
+El código de Nova es el siguiente:
+
+procedure Poner_ADistancia3Al_(color, dirección) {
+Mover3VecesAl_(dirección) Poner(color) }
+
+b) En segundo lugar, se pide contestar la siguiente pregunta que realizó Nova: ¿Cuál es la relación entre el
+parámetro dirección de este procedimiento con el parámetro direcciónAMover de Mover3VecesAl_?
+*/
+
+procedure Poner_ADistancia3Al_(color, dirección){
+    /**/
+    Mover3VecesAl_(dirección)
+    Poner(color)
+}
+
+
+/*
+b) La relacion entre los parametros de es declaracion y uso. En el punto 1 declaro el parametro en el procedimiento, y en el ejercicio de Nova lo uso, mediante un argumento.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

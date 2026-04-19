@@ -1,0 +1,209 @@
+/*
+U#01 - INTRODUCCION
+    Gobstones y sus componentes. Comandos primitivos. Expresiones Literales. 
+    Contrato. Dinamica general de trabajo en la cursada
+
+    EJS - SUGERIDOS - #
+        # Analizando propositos
+        # Analizando precondiciones
+        # Cuadrados verdes
+
+*/
+
+#-------------------------------------------------------
+
+program {
+    /*
+        PROPOSITO: 
+        PRECONDICIONES:
+    */
+    
+    /*
+        Mover(Este)
+        Mover(Este)
+        Mover(Este)
+        Mover(Norte)
+    */
+    
+    Poner(Rojo) // Accion(Argumento)
+    Poner(Azul) // Pone una bolita de color azul en la celda actual
+    // Poner(Azul)
+    Poner(Azul)
+    Poner(Azul)
+    
+    Sacar(Rojo)
+
+}
+
+#-------------------------------------------------------
+
+program {
+    /*
+        (Que hace el programa)
+        PROPOSITO: Pone una bolita color Azul y una bolita color Rojo en la celda actual
+        
+        (RESTRICCIONES)
+        (Todo lo que se debe cumplir al momento de ejecutar el programa, para cumplir el proposito)
+        PRECONDICIONES: Ninguna
+    */
+    Poner(Verde)
+    Sacar(Verde)
+    Poner(Azul)
+    Poner(Rojo)
+}
+
+#-------------------------------------------------------
+
+program {
+    /*
+        (Que hace el programa)
+        PROPOSITO: Saca una bolita de color Verde y pone una bolita color Azul y una bolita
+            color Rojo en la celda actual
+        
+        (RESTRICCIONES)
+        (Todo lo que se debe cumplir al momento de ejecutar el programa, para cumplir el proposito)
+        PRECONDICIONES: Debe haber al menos una bolita de color Verde en la celda actual 
+    */
+    Sacar(Verde)
+    Poner(Azul)
+    Poner(Rojo)
+}
+
+#-------------------------------------------------------
+
+program {
+    /*
+        (Que hace el programa)
+        PROPOSITO: Saca una bolita de color Verde en la celda actual y pone una bolita color Azul
+            y una bolita color Rojo en la celda lindante al Este
+        
+        (RESTRICCIONES)
+        (Todo lo que se debe cumplir al momento de ejecutar el programa, para cumplir el proposito)
+        PRECONDICIONES:
+            *Debe haber al menos una bolita de color Verde en la celda actual
+            *Debe haber al menos una celda disponible al Este
+    */
+    Sacar(Verde)
+    Mover(Este)
+    Poner(Azul)
+    Poner(Rojo)
+}
+
+#-------------------------------------------------------
+
+#-------------------------------------------------------
+/*
+6. Cuadrados verdes
+Escribir los siguientes programas:
+
+a) Uno que ponga un cuadrado de tamaño 3 con bolitas de color verde, con centro en la celda inicial
+(dejando el cabezal en dicha celda al finalizar)
+▪ ¿Qué ocurre si el tablero ya tenı́a bolitas verdes? ¿Es esto un problema, o el efecto obtenido es acorde
+al propósito?
+▪ ¿Qué ocurriría si desde la celda inicial no hay espacio para colocar las bolitas necesarias para que se
+cumpla el propósito?
+*/
+program{
+    /*
+    PROPOSITO: Pone un cuadrado de bolitas de color Verde en un tablero de 3x3 celdas.
+        Comenzando y terminando en el centro del tablero.
+    PRECONDICIONES:
+        * El tablero inicial debe tener 3x3 celdas
+        * El cabezal inicia en el centro del tablero
+    */
+    Poner(Verde) Mover(Oeste) 
+    Poner(Verde) Mover(Sur) 
+    Poner(Verde) Mover(Este)
+    Poner(Verde) Mover(Este)
+    Poner(Verde) Mover(Norte)
+    Poner(Verde) Mover(Norte)
+    Poner(Verde) Mover(Oeste) 
+    Poner(Verde) Mover(Oeste) 
+    
+    Mover(Sur) Mover(Este)
+}
+
+/*
+b) Uno que saque un cuadrado de tamaño 3 con bolitas de color verde (saca una bolita de cada celda),
+siendo la celda inicial el centro del cuadrado, dejando el cabezal en dicha celda al finalizar.
+▪ ¿Qué sucede si no hay al menos una bolita verde en cada una de las celdas necesarias? ¿Y si el
+tablero no tiene el tamaño adecuado?
+(A) (B)
+
+Efectos de poner y sacar un cuadrado
+verde. Empezando con el Tablero (A), el
+programa a) termina en el Tablero (B),
+mientras que empezando con el Tablero
+(B) se obtiene el Tablero (A) al ejecutar el
+programa b).
+*/
+
+program{
+    /*
+    PROPOSITO: Pone un cuadrado de bolitas de color Verde en un tablero de 3x3 celdas.
+        Comenzando y terminando en el centro del tablero.
+    PRECONDICIONES:
+        * El tablero inicial debe tener 3x3 celdas
+        * El cabezal inicia en el centro del tablero
+    */
+    // Ir al inicio del tablero
+    Mover(Sur) Mover(Oeste)
+    
+    // Poner Fila Verde
+    Poner(Verde) Mover(Este)
+    Poner(Verde) Mover(Este)
+    Poner(Verde)
+    
+    // Ir al inicio de siguiete fila al Norte
+    Mover(Norte) Mover(Oeste) Mover(Oeste)
+    
+    // Poner Fila Verde
+    Poner(Verde) Mover(Este)
+    Poner(Verde) Mover(Este)
+    Poner(Verde)
+    
+    // Ir al inicio de siguiete fila al Norte
+    Mover(Norte) Mover(Oeste) Mover(Oeste)
+    
+    // Poner Fila Verde
+    Poner(Verde) Mover(Este)
+    Poner(Verde) Mover(Este)
+    Poner(Verde)
+    
+    // Ir al Centro del tablero
+    Mover(Sur) Mover(Oeste)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
